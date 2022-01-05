@@ -12,6 +12,7 @@ namespace UI
         [SerializeField] private IntVariable _healthVar;
         [SerializeField] private TextMeshProUGUI _healthText;
         [SerializeField] private ScriptableEventIntReference _onHealthChangedEvent;
+        [SerializeField] private ScriptableEventIntReference _onPowerUpPickup;
         
         [Header("Score:")]
         [SerializeField] private TextMeshProUGUI _scoreText;
@@ -28,6 +29,11 @@ namespace UI
         }
 
         public void OnHealthChanged(IntReference newValue)
+        {
+            SetHealthText($"Health: {newValue.GetValue()}");
+        }
+
+        public void OnPowerUpPickup(IntReference newValue)
         {
             SetHealthText($"Health: {newValue.GetValue()}");
         }
